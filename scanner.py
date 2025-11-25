@@ -6,7 +6,6 @@ import requests
 from pathlib import Path
 from io import StringIO
 
-
 CSV_URL = "https://raw.githubusercontent.com/wiz-sec-public/wiz-research-iocs/main/reports/shai-hulud-2-packages.csv"
 
 
@@ -145,8 +144,6 @@ def main(lockfile_path: str):
 
     results = check_packages(packages, lock_data)
 
-    found_anything = False
-
     for pkg, found, expected in results:
         if found is None:
             continue
@@ -155,10 +152,6 @@ def main(lockfile_path: str):
             print(f"{pkg}: match found, version mismatch (CSV: {expected}, Lockfile: {found})")
         else:
             print(f"{pkg}: match found (version: {found})")
-            found_anything = True
-
-    if not found_anything:
-        print("No matches found in the lock file.")
 
 
 if __name__ == "__main__":

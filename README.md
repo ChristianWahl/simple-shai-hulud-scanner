@@ -19,6 +19,23 @@ pip install -r requirements.txt
 
 ## Usage
 
+### Single Scan
+
 ```bash
 python scanner.py <package-lock.json | yarn.lock>
 ```
+
+### Recursive Scan Across Many Repositories
+
+Use the included script scan-folder.sh to automatically scan all Git repositories under a directory:
+
+```bash
+./scan-folder.sh /path/to/directory
+```
+
+It will:
+
+- discover repositories by locating .git/ folders
+- detect the available lockfile
+- run the scanner
+- log all findings to scan-results.log

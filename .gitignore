@@ -2,3 +2,4 @@ package-lock.json
 .idea
 .venv
 __pycache__/
+scan-results.log
